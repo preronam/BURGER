@@ -1,26 +1,21 @@
+// Global
+require("dotenv").config();
 const express = require("express");
-
-const PORT = process.env.PORT || 8080;
-
-const app = express();
-
-//serves static files
-app.use(express.static(__dirname + "/public"));
-
-//parse application body
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-//set up handlebars
+const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
+const methodOverride = require('method-override');
+const routes = require("./controllers/burgers_controllers");
+const app = express();
+const PORT = process.env.PORT || 8080;
+// Config Settings
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//import routes and give the server access to them
-var mainRoutes = require("./controllers/burgers_controllers");
-app.use(mainRoutes);
-
-//listen
-app.listen(PORT, function () {
-  console.log("Server listening on: PORT" + PORT);
+app.set("view engine","handlebars");
+app.use("/", routes);
+app.use(express.static('public'));
+// Listener
+app.listen(PORT,function(){
+    console.log("App now listening at localhost:" + PORT);
 });
