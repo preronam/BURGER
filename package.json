@@ -6,10 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "database": "burgers_db",
-    "host": ""
-    "password":"password",
-    "dialect": "mysql"
+    "database": "burgers_db"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
