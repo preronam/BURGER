@@ -1,14 +1,21 @@
 {
   "name": "eat-da-burger",
   "version": "1.0.0",
-  "description": "This is a restaurant app that lets users add the names of burgers and eat them!",
+  "description": "",
   "main": "server.js",
-"test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node server.js"
-
- "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
     "mysql": "^2.17.1"
   }
 }
