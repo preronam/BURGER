@@ -8,8 +8,8 @@ const app = express();
 app.use(express.static(__dirname + "/public"));
 
 //parse application body
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //set up handlebars
 const exphbs = require("express-handlebars");
@@ -17,8 +17,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //import routes and give the server access to them
-var mainRoutes = require("./controllers/burgers_controllers");
-app.use(mainRoutes);
+var routes= require("./controllers/burgers_controllers");
+app.use(routes);
 
 //listen
 app.listen(PORT, function () {

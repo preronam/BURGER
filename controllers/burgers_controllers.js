@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const burger = require("../models/burger.js");
+var bodyParser = require("body-parser");
+
 
 // get all from the database
 router.get("/", function (req, res) {
-  burger.selectAll(function (data) {
+  burgers.selectAll(function (data) {
     //convet to object for handlebars!
     const hbsObject = {
       burgers: data
@@ -47,7 +49,7 @@ router.put("/api/burgers/devoured/:id", function (req, res) {
 router.delete("/api/burgers/:id", function (req, res) {
   const condition = `id = ${req.params.id}`;
 
-  burgers_db.deleteOne(condition, function (result) {
+  burger.deleteOne(condition, function (result) {
     if (result.affectedRows === 0) {
       //if no rows were changed, the ID must not exist so 404
       return res.status(404).end();
