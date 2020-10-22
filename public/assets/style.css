@@ -1,0 +1,49 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url(/assets/image/burger.jpg);
+    width: 100%;
+}
+
+h1 {
+    margin: auto 0;
+    margin-left: 20%;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    color: blueviolet;
+}
+
+#avail {
+    float: left;
+    margin-right: 6%;
+    margin-left: 10%;
+    color: blueviolet;
+
+
+}
+
+#devoured {
+    float: left;
+    color: blueviolet;
+
+}
+
+li {
+    font-size: 20px;
+    list-style-type: none;
+}
+
+
+#add {
+    clear: both;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: blueviolet;
+    background-color: lemonchiffon;
+}
+
+.new{
+    background-color: lemonchiffon;
+}
+.eaten{
+    background-color: lemonchiffon;
+}
