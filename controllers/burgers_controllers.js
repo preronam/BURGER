@@ -4,7 +4,7 @@ const burger = require("../models/burger.js");
 
 // get all from the database
 router.get("/", function (req, res) {
-  burgers_db.selectAll(function (data) {
+  burger.selectAll(function (data) {
     //convet to object for handlebars!
     const hbsObject = {
       burgers: data
@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
 
 // post a new burger
 router.post("/api/burgers", function (req, res) {
-  burgers_db.insertOne(req.body.burger_name, function (result) {
+  burger.insertOne(req.body.burger_name, function (result) {
     console.log(result);
     res.json(result);
   });
@@ -32,7 +32,7 @@ router.put("/api/burgers/devoured/:id", function (req, res) {
   // console.log(condition);
   // console.log("req.body.devoured", boolean);
 
-  burgers_db.updateOne(boolean, condition, function (result) {
+  burger.updateOne(boolean, condition, function (result) {
     if (result.changedRows === 0) {
       //if no rows were changed, the ID must not exist so 404
       return res.status(404).end();
